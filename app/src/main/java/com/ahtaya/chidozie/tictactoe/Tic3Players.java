@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Tic3Players extends AppCompatActivity {
@@ -51,6 +53,9 @@ public class Tic3Players extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.about:
                 startActivity(new Intent(this, AboutActivity.class));
+                break;
+            case android.R.id.home:
+                NavUtils.navigateUpTo(this, Objects.requireNonNull(NavUtils.getParentActivityIntent(this)));
                 break;
         }
         return true;
