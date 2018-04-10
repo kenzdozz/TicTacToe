@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ticback"
+    android:orientation="vertical"
+    tools:context=".Tic3Players">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn1"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+            <Button
+                android:id="@+id/btn2"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+            <Button
+                android:id="@+id/btn3"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn4"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+            <Button
+                android:id="@+id/btn5"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+            <Button
+                android:id="@+id/btn6"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row2"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn7"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+            <Button
+                android:id="@+id/btn8"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+            <Button
+                android:id="@+id/btn9"
+                style="@style/tic3Btn"
+                tools:text="X" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/btn"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            tools:text="Computer's turn" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/log"
+            android:contentDescription="@string/logo" />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row3"
+            android:layout_margin="4dp"
+            android:text="@string/reset"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/sound"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/row3"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/btn"
+            android:src="@drawable/sound"
+            android:textSize="20sp"
+            android:contentDescription="@string/mute" />
+
+        <TextView
+            android:id="@+id/lead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reset"
+            android:background="#cccccc"
+            android:fontFamily="@font/progress"
+            android:padding="4dp"
+            android:text="@string/leaderboard"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/stat_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lead"
+            android:background="#ccc">
+
+            <TextView
+                android:id="@+id/player_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/computer"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tie"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/player_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/player"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stat_name"
+            android:background="#ccc">
+
+            <TextView
+                android:id="@+id/player_one_stat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tie_stat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/player_two_stat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/_0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/clear"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/sound"
+            android:layout_marginTop="10dp"
+            android:background="@color/btn"
+            android:src="@drawable/clear"
+            android:contentDescription="@string/clear_image" />
+
+        <LinearLayout
+            android:id="@+id/notify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/notifyTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="26sp"
+                tools:text="Computer's turn" />
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/close" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ticback"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/progress"
+            android:padding="16dp"
+            android:text="@string/tic_tac_toe"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="46sp" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_below="@id/title"
+            android:layout_margin="16dp"
+            android:src="@drawable/log"
+            android:contentDescription="@string/logo" />
+
+        <Button
+            android:id="@+id/by3"
+            android:text="@string/_3_x_3"
+            android:layout_below="@id/logo"
+            style="@style/homeBtn" />
+
+        <Button
+            android:id="@+id/by4"
+            android:text="@string/_4_x_4"
+            android:layout_below="@id/by3"
+            style="@style/homeBtn" />
+
+        <Button
+            android:id="@+id/by5"
+            android:text="@string/_5_x_5"
+            android:layout_below="@id/by4"
+            style="@style/homeBtn" />
+
+        <Button
+            android:id="@+id/computer"
+            android:text="@string/vs_computer"
+            android:layout_below="@id/logo"
+            android:visibility="gone"
+            style="@style/homeBtn" />
+
+        <Button
+            android:id="@+id/humans"
+            android:text="@string/vs_human"
+            android:layout_below="@id/computer"
+            android:visibility="gone"
+            style="@style/homeBtn" />
+
+        <Button
+            android:id="@+id/x"
+            android:text="@string/x"
+            android:layout_below="@id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:fontFamily="@font/princess"
+            android:paddingBottom="4dp"
+            android:paddingEnd="36dp"
+            android:paddingStart="36dp"
+            android:paddingTop="4dp"
+            android:visibility="gone"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/o"
+            android:text="@string/o"
+            android:layout_below="@id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentEnd="true"
+            android:background="@color/white"
+            android:fontFamily="@font/princess"
+            android:paddingBottom="4dp"
+            android:paddingEnd="36dp"
+            android:paddingStart="36dp"
+            android:paddingTop="4dp"
+            android:visibility="gone"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/rand"
+            android:text="@string/random"
+            android:layout_below="@id/x"
+            android:visibility="gone"
+            style="@style/homeBtn" />
+
+        <EditText
+            android:id="@+id/pone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:inputType="text"
+            android:layout_below="@id/logo"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:hint="@string/player_one" />
+
+        <EditText
+            android:id="@+id/ptwo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:inputType="text"
+            android:layout_below="@id/pone"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:hint="@string/player_two" />
+
+        <Button
+            android:id="@+id/start"
+            android:text="@string/start"
+            android:layout_below="@id/ptwo"
+            android:visibility="gone"
+            style="@style/homeBtn" />
+
+        <ImageView
+            android:id="@+id/restart"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/white"
+            android:fontFamily="@font/princess"
+            android:padding="8dp"
+            android:layout_margin="4dp"
+            android:visibility="gone"
+            android:src="@drawable/restart"
+            android:contentDescription="@string/restart_image" />
+
+    </RelativeLayout>
+
+</ScrollView>
