@@ -94,8 +94,8 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:background="@color/btn"
-            android:textAlignment="center"
             android:padding="8dp"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="26sp"
             tools:text="Computer's turn" />
@@ -105,8 +105,8 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/log"
-            android:contentDescription="@string/logo" />
+            android:contentDescription="@string/logo"
+            android:src="@drawable/log" />
 
         <Button
             android:id="@+id/reset"
@@ -126,9 +126,9 @@
             android:layout_marginEnd="4dp"
             android:layout_marginTop="8dp"
             android:background="@color/btn"
+            android:contentDescription="@string/mute"
             android:src="@drawable/sound"
-            android:textSize="20sp"
-            android:contentDescription="@string/mute" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/lead"
@@ -226,8 +226,8 @@
             android:layout_below="@id/sound"
             android:layout_marginTop="10dp"
             android:background="@color/btn"
-            android:src="@drawable/clear"
-            android:contentDescription="@string/clear_image" />
+            android:contentDescription="@string/clear_image"
+            android:src="@drawable/clear" />
 
         <LinearLayout
             android:layout_width="match_parent"

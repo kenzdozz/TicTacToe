@@ -4,9 +4,9 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,15 +45,15 @@ public class Tic5Computer extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.about:
                 startActivity(new Intent(this, AboutActivity.class));
                 break;
@@ -129,11 +129,11 @@ public class Tic5Computer extends AppCompatActivity {
                 break;
         }
 
-        if(!computerTurn){
+        if (!computerTurn) {
             playerSign = "X";
             computerSign = "O";
             playerPlay();
-        }else {
+        } else {
             removeClickListener();
             computerPlay();
         }
@@ -158,7 +158,7 @@ public class Tic5Computer extends AppCompatActivity {
 
         player = MediaPlayer.create(this, R.raw.play);
         player.setLooping(false); // Set looping
-        player.setVolume(100,100);
+        player.setVolume(100, 100);
 
         final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
 
@@ -202,7 +202,7 @@ public class Tic5Computer extends AppCompatActivity {
                     animation.setAnimationListener(null);
                     sound = false;
                     soundBtn.setImageDrawable(getResources().getDrawable(R.drawable.no_sound));
-                }else {
+                } else {
                     animation.setAnimationListener(animationListener);
                     sound = true;
                     soundBtn.setImageDrawable(getResources().getDrawable(R.drawable.sound));
@@ -323,7 +323,7 @@ public class Tic5Computer extends AppCompatActivity {
                 }
                 i += 4;
             }
-        }else{
+        } else {
             int j = indexRow[0];
             for (int i = 0; i < 5; i++) {
                 int k = j + i;
@@ -351,12 +351,12 @@ public class Tic5Computer extends AppCompatActivity {
         return largest;
     }
 
-    void randomPlay(){
-        while(true) {
+    void randomPlay() {
+        while (true) {
             Random random = new Random();
             int rand = random.nextInt(25) + 1;
             Button button = findViewById(getResources().getIdentifier("btn" + rand, "id", getPackageName()));
-            if (button.getText().equals("")){
+            if (button.getText().equals("")) {
                 button.setText(computerSign);
                 button.startAnimation(animation);
                 break;
@@ -364,16 +364,16 @@ public class Tic5Computer extends AppCompatActivity {
         }
     }
 
-    boolean playToWin(){
-        for (int i = 1; i < 26; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", this.getPackageName()));
-            if (button.getText() == ""){
+    boolean playToWin() {
+        for (int i = 1; i < 26; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", this.getPackageName()));
+            if (button.getText() == "") {
                 button.setText(computerSign);
-                if (checkWin(computerSign)){
+                if (checkWin(computerSign)) {
                     button.startAnimation(animation);
                     setNotify(win, 1);
                     return true;
-                }else {
+                } else {
                     button.setText("");
                 }
             }
@@ -381,16 +381,16 @@ public class Tic5Computer extends AppCompatActivity {
         return false;
     }
 
-    boolean playToBlock(){
-        for (int i = 1; i < 26; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", this.getPackageName()));
-            if (button.getText() == ""){
+    boolean playToBlock() {
+        for (int i = 1; i < 26; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", this.getPackageName()));
+            if (button.getText() == "") {
                 button.setText(playerSign);
-                if (checkWin(playerSign)){
+                if (checkWin(playerSign)) {
                     button.setText(computerSign);
                     button.startAnimation(animation);
                     return true;
-                }else {
+                } else {
                     button.setText("");
                 }
             }
@@ -398,14 +398,14 @@ public class Tic5Computer extends AppCompatActivity {
         return false;
     }
 
-    void removeClickListener(){
+    void removeClickListener() {
         for (int i = 1; i < 26; i++) {
             Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
             button.setOnClickListener(null);
         }
     }
 
-    void playerPlay(){
+    void playerPlay() {
 
         if (!isPlay)
             return;
@@ -421,7 +421,7 @@ public class Tic5Computer extends AppCompatActivity {
                         button.startAnimation(animation);
                         button.setText(playerSign);
                         removeClickListener();
-                        if (checkWin(playerSign)){
+                        if (checkWin(playerSign)) {
                             setNotify(win, 2);
                             return;
                         }
@@ -432,20 +432,26 @@ public class Tic5Computer extends AppCompatActivity {
         }
     }
 
-    void computerPlay(){
+    void computerPlay() {
 
         if (!isPlay)
             return;
 
-        switch (level){
-            case 1 : computerPlayEasy(); break;
-            case 2 : computerPlayMedim(); break;
-            case 3 : computerPlayHard(); break;
+        switch (level) {
+            case 1:
+                computerPlayEasy();
+                break;
+            case 2:
+                computerPlayMedim();
+                break;
+            case 3:
+                computerPlayHard();
+                break;
         }
 
     }
 
-    void computerPlayHard(){
+    void computerPlayHard() {
 
         status.setText(R.string.computer_turn);
 
@@ -470,7 +476,7 @@ public class Tic5Computer extends AppCompatActivity {
         }).start();
     }
 
-    void computerPlayMedim(){
+    void computerPlayMedim() {
 
         status.setText(R.string.computer_turn);
 
@@ -486,7 +492,7 @@ public class Tic5Computer extends AppCompatActivity {
                         if (!playToBlock())
                             randomPlay();
                         if (!checkWin(computerSign))
-                                playerPlay();
+                            playerPlay();
 
                     }
                 });
@@ -494,7 +500,7 @@ public class Tic5Computer extends AppCompatActivity {
         }).start();
     }
 
-    void computerPlayEasy(){
+    void computerPlayEasy() {
 
         status.setText(R.string.computer_turn);
 
@@ -521,47 +527,47 @@ public class Tic5Computer extends AppCompatActivity {
             return false;
 
         return
-                areEqual(btn1.getText().toString(),      btn2.getText().toString(),   btn3.getText().toString(),
-                        btn4.getText().toString(),    btn5.getText().toString(), sign)   ||
+                areEqual(btn1.getText().toString(), btn2.getText().toString(), btn3.getText().toString(),
+                        btn4.getText().toString(), btn5.getText().toString(), sign) ||
 
-                areEqual(btn6.getText().toString(),      btn7.getText().toString(),   btn8.getText().toString(),
-                        btn9.getText().toString(),    btn10.getText().toString(), sign)   ||
+                        areEqual(btn6.getText().toString(), btn7.getText().toString(), btn8.getText().toString(),
+                                btn9.getText().toString(), btn10.getText().toString(), sign) ||
 
-                areEqual(btn11.getText().toString(),      btn12.getText().toString(),   btn13.getText().toString(),
-                        btn14.getText().toString(),    btn15.getText().toString(), sign)   ||
+                        areEqual(btn11.getText().toString(), btn12.getText().toString(), btn13.getText().toString(),
+                                btn14.getText().toString(), btn15.getText().toString(), sign) ||
 
-                areEqual(btn16.getText().toString(),      btn17.getText().toString(),   btn18.getText().toString(),
-                        btn19.getText().toString(),    btn20.getText().toString(), sign)   ||
+                        areEqual(btn16.getText().toString(), btn17.getText().toString(), btn18.getText().toString(),
+                                btn19.getText().toString(), btn20.getText().toString(), sign) ||
 
-                areEqual(btn21.getText().toString(),      btn22.getText().toString(),   btn23.getText().toString(),
-                        btn24.getText().toString(),    btn25.getText().toString(), sign)   ||
+                        areEqual(btn21.getText().toString(), btn22.getText().toString(), btn23.getText().toString(),
+                                btn24.getText().toString(), btn25.getText().toString(), sign) ||
 
-                areEqual(btn1.getText().toString(),      btn6.getText().toString(),   btn11.getText().toString(),
-                        btn16.getText().toString(),    btn21.getText().toString(), sign)   ||
+                        areEqual(btn1.getText().toString(), btn6.getText().toString(), btn11.getText().toString(),
+                                btn16.getText().toString(), btn21.getText().toString(), sign) ||
 
-                areEqual(btn2.getText().toString(),      btn7.getText().toString(),   btn12.getText().toString(),
-                        btn17.getText().toString(),    btn22.getText().toString(), sign)   ||
+                        areEqual(btn2.getText().toString(), btn7.getText().toString(), btn12.getText().toString(),
+                                btn17.getText().toString(), btn22.getText().toString(), sign) ||
 
-                areEqual(btn3.getText().toString(),      btn8.getText().toString(),   btn13.getText().toString(),
-                        btn18.getText().toString(),    btn23.getText().toString(), sign)   ||
+                        areEqual(btn3.getText().toString(), btn8.getText().toString(), btn13.getText().toString(),
+                                btn18.getText().toString(), btn23.getText().toString(), sign) ||
 
-                areEqual(btn4.getText().toString(),      btn9.getText().toString(),   btn14.getText().toString(),
-                        btn19.getText().toString(),    btn24.getText().toString(), sign)   ||
+                        areEqual(btn4.getText().toString(), btn9.getText().toString(), btn14.getText().toString(),
+                                btn19.getText().toString(), btn24.getText().toString(), sign) ||
 
-                areEqual(btn5.getText().toString(),      btn10.getText().toString(),   btn15.getText().toString(),
-                        btn20.getText().toString(),    btn25.getText().toString(), sign)   ||
+                        areEqual(btn5.getText().toString(), btn10.getText().toString(), btn15.getText().toString(),
+                                btn20.getText().toString(), btn25.getText().toString(), sign) ||
 
-                areEqual(btn1.getText().toString(),      btn7.getText().toString(),   btn13.getText().toString(),
-                        btn19.getText().toString(),    btn25.getText().toString(), sign)   ||
+                        areEqual(btn1.getText().toString(), btn7.getText().toString(), btn13.getText().toString(),
+                                btn19.getText().toString(), btn25.getText().toString(), sign) ||
 
-                areEqual(btn5.getText().toString(),      btn9.getText().toString(),   btn13.getText().toString(),
-                        btn17.getText().toString(),    btn21.getText().toString(), sign)   ||
+                        areEqual(btn5.getText().toString(), btn9.getText().toString(), btn13.getText().toString(),
+                                btn17.getText().toString(), btn21.getText().toString(), sign) ||
 
-                gameOver();
+                        gameOver();
     }
 
-    boolean areEqual( String a, String b, String c, String d, String e, String sign ){
-        Boolean check = ( sign.equals(a)  &&  sign.equals(b) &&  sign.equals(c) &&  sign.equals(d) &&  sign.equals(e) );
+    boolean areEqual(String a, String b, String c, String d, String e, String sign) {
+        Boolean check = (sign.equals(a) && sign.equals(b) && sign.equals(c) && sign.equals(d) && sign.equals(e));
         if (check && sign.equals(computerSign)) {
             win = "Computer wins";
         }
@@ -571,15 +577,15 @@ public class Tic5Computer extends AppCompatActivity {
         return check;
     }
 
-    boolean gameOver(){
+    boolean gameOver() {
 
         int p = 0;
-        for (int i = 1; i < 26; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", getPackageName()));
+        for (int i = 1; i < 26; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
             if (!button.getText().equals(""))
                 p++;
         }
-        if (p == 25){
+        if (p == 25) {
             win = "It's a tie";
             setNotify(win, 0);
             isPlay = false;
@@ -587,34 +593,34 @@ public class Tic5Computer extends AppCompatActivity {
         return false;
     }
 
-    void setNotify(String win, int player){
+    void setNotify(String win, int player) {
         status.setText(win);
         notifyTv.setText(win);
         notify.setVisibility(View.VISIBLE);
         animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
         notify.setAnimation(animation2);
 
-        if (player == 0){
+        if (player == 0) {
             int stat = Integer.parseInt(tieStat.getText().toString()) + 1;
             tieStat.setText(String.valueOf(stat));
             pref.edit().putInt("pTie", stat).apply();
-        }else if (player == 1){
+        } else if (player == 1) {
             int stat = Integer.parseInt(playerOneStat.getText().toString()) + 1;
             playerOneStat.setText(String.valueOf(stat));
             pref.edit().putInt("pOneScore", stat).apply();
-        }else if (player == 2){
+        } else if (player == 2) {
             int stat = Integer.parseInt(playerTwoStat.getText().toString()) + 1;
             playerTwoStat.setText(String.valueOf(stat));
             pref.edit().putInt("pTwoScore", stat).apply();
         }
     }
 
-    void reset(){
+    void reset() {
         isPlay = true;
         notify.setAnimation(null);
         notify.setVisibility(View.GONE);
-        for (int i = 1; i < 26; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", getPackageName()));
+        for (int i = 1; i < 26; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
             button.setText("");
         }
 
@@ -632,11 +638,11 @@ public class Tic5Computer extends AppCompatActivity {
                 break;
         }
 
-        if(!computerTurn){
+        if (!computerTurn) {
             playerSign = "X";
             computerSign = "O";
             playerPlay();
-        }else {
+        } else {
             removeClickListener();
             computerPlay();
         }

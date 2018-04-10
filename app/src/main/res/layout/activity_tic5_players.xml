@@ -16,10 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/status"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
 
             <Button
                 android:id="@+id/btn1"
@@ -53,10 +53,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row1"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
 
             <Button
                 android:id="@+id/btn6"
@@ -90,10 +90,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row2"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
 
             <Button
                 android:id="@+id/btn11"
@@ -127,10 +127,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row3"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
 
             <Button
                 android:id="@+id/btn16"
@@ -164,10 +164,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/row4"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp">
 
             <Button
                 android:id="@+id/btn21"
@@ -205,9 +205,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:background="@color/btn"
+            android:padding="8dp"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:padding="8dp"
             android:textSize="26sp"
             tools:text="Computer's turn" />
 
@@ -216,8 +216,8 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/log"
-            android:contentDescription="@string/logo" />
+            android:contentDescription="@string/logo"
+            android:src="@drawable/log" />
 
         <Button
             android:id="@+id/reset"
@@ -237,9 +237,9 @@
             android:layout_marginEnd="4dp"
             android:layout_marginTop="8dp"
             android:background="@color/btn"
+            android:contentDescription="@string/mute"
             android:src="@drawable/sound"
-            android:textSize="20sp"
-            android:contentDescription="@string/mute" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/lead"
@@ -337,8 +337,8 @@
             android:layout_below="@id/sound"
             android:layout_marginTop="10dp"
             android:background="@color/btn"
-            android:src="@drawable/clear"
-            android:contentDescription="@string/clear_image" />
+            android:contentDescription="@string/clear_image"
+            android:src="@drawable/clear" />
 
         <LinearLayout
             android:id="@+id/notify"

@@ -1,8 +1,8 @@
 package com.ahtaya.chidozie.tictactoe;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,15 +14,15 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    final static int BY_3 = 1;
+    final static int BY_4 = 2;
+    final static int BY_5 = 3;
     Button by5, by4, by3, vsHuman, vsComputer, beX, beO, random, start;
     EditText pOne, pTwo;
     ImageView logo, restart;
     TextView title;
     Animation moveInRight, moveInLeft, moveOutRight, moveOutLeft, moveUp, fadeIn, fadeOut;
     int type;
-    final static int BY_3 = 1;
-    final static int BY_4 = 2;
-    final static int BY_5 = 3;
     Intent intent;
 
     @Override
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (pOne.getText().toString().equals("") || pTwo.getText().toString().equals("")){
+                if (pOne.getText().toString().equals("") || pTwo.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Enter names of players", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         restart.setVisibility(View.VISIBLE);
     }
 
-    private void disappearAnim(Animation animation, final View button){
+    private void disappearAnim(Animation animation, final View button) {
 
         button.startAnimation(animation);
 

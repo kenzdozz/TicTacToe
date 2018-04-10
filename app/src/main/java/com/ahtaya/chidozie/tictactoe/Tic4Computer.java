@@ -4,9 +4,9 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,15 +44,15 @@ public class Tic4Computer extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.about:
                 startActivity(new Intent(this, AboutActivity.class));
                 break;
@@ -313,7 +313,7 @@ public class Tic4Computer extends AppCompatActivity {
                 }
                 i += 3;
             }
-        }else{
+        } else {
             int j = indexRow[0];
             for (int i = 0; i < 4; i++) {
                 int k = j + i;

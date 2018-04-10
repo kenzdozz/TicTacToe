@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ticback"
-    android:orientation="vertical"
     android:fillViewport="true"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -30,126 +30,126 @@
             android:layout_height="140dp"
             android:layout_below="@id/title"
             android:layout_margin="16dp"
-            android:src="@drawable/log"
-            android:contentDescription="@string/logo" />
+            android:contentDescription="@string/logo"
+            android:src="@drawable/log" />
 
         <Button
             android:id="@+id/by3"
-            android:text="@string/_3_x_3"
+            style="@style/homeBtn"
             android:layout_below="@id/logo"
-            style="@style/homeBtn" />
+            android:text="@string/_3_x_3" />
 
         <Button
             android:id="@+id/by4"
-            android:text="@string/_4_x_4"
+            style="@style/homeBtn"
             android:layout_below="@id/by3"
-            style="@style/homeBtn" />
+            android:text="@string/_4_x_4" />
 
         <Button
             android:id="@+id/by5"
-            android:text="@string/_5_x_5"
+            style="@style/homeBtn"
             android:layout_below="@id/by4"
-            style="@style/homeBtn" />
+            android:text="@string/_5_x_5" />
 
         <Button
             android:id="@+id/computer"
-            android:text="@string/vs_computer"
+            style="@style/homeBtn"
             android:layout_below="@id/logo"
-            android:visibility="gone"
-            style="@style/homeBtn" />
+            android:text="@string/vs_computer"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/humans"
-            android:text="@string/vs_human"
+            style="@style/homeBtn"
             android:layout_below="@id/computer"
-            android:visibility="gone"
-            style="@style/homeBtn" />
+            android:text="@string/vs_human"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/x"
-            android:text="@string/x"
-            android:layout_below="@id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/logo"
             android:layout_marginBottom="20dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:fontFamily="@font/princess"
             android:paddingBottom="4dp"
             android:paddingEnd="36dp"
             android:paddingStart="36dp"
             android:paddingTop="4dp"
-            android:visibility="gone"
-            android:textSize="26sp" />
+            android:text="@string/x"
+            android:textSize="26sp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/o"
-            android:text="@string/o"
-            android:layout_below="@id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:layout_alignParentEnd="true"
+            android:layout_below="@id/logo"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:fontFamily="@font/princess"
             android:paddingBottom="4dp"
             android:paddingEnd="36dp"
             android:paddingStart="36dp"
             android:paddingTop="4dp"
-            android:visibility="gone"
-            android:textSize="26sp" />
+            android:text="@string/o"
+            android:textSize="26sp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/rand"
-            android:text="@string/random"
+            style="@style/homeBtn"
             android:layout_below="@id/x"
-            android:visibility="gone"
-            style="@style/homeBtn" />
+            android:text="@string/random"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/pone"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/white"
-            android:inputType="text"
             android:layout_below="@id/logo"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
-            android:hint="@string/player_one" />
+            android:background="@color/white"
+            android:hint="@string/player_one"
+            android:inputType="text"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/ptwo"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/white"
-            android:inputType="text"
             android:layout_below="@id/pone"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
-            android:hint="@string/player_two" />
+            android:background="@color/white"
+            android:hint="@string/player_two"
+            android:inputType="text"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/start"
-            android:text="@string/start"
+            style="@style/homeBtn"
             android:layout_below="@id/ptwo"
-            android:visibility="gone"
-            style="@style/homeBtn" />
+            android:text="@string/start"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/restart"
@@ -157,13 +157,13 @@
             android:layout_height="46dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:layout_margin="4dp"
             android:background="@color/white"
+            android:contentDescription="@string/restart_image"
             android:fontFamily="@font/princess"
             android:padding="8dp"
-            android:layout_margin="4dp"
-            android:visibility="gone"
             android:src="@drawable/restart"
-            android:contentDescription="@string/restart_image" />
+            android:visibility="gone" />
 
     </RelativeLayout>
 

@@ -4,10 +4,9 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -44,15 +43,15 @@ public class Tic3Computer extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.about:
                 startActivity(new Intent(this, AboutActivity.class));
                 break;
@@ -111,11 +110,11 @@ public class Tic3Computer extends AppCompatActivity {
                 break;
         }
 
-        if(!computerTurn){
+        if (!computerTurn) {
             playerSign = "X";
             computerSign = "O";
             playerPlay();
-        }else {
+        } else {
             removeClickListener();
             computerPlay();
         }
@@ -140,7 +139,7 @@ public class Tic3Computer extends AppCompatActivity {
 
         player = MediaPlayer.create(this, R.raw.play);
         player.setLooping(false); // Set looping
-        player.setVolume(100,100);
+        player.setVolume(100, 100);
 
         final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
 
@@ -185,7 +184,7 @@ public class Tic3Computer extends AppCompatActivity {
                     animation.setAnimationListener(null);
                     sound = false;
                     soundBtn.setImageDrawable(getResources().getDrawable(R.drawable.no_sound));
-                }else {
+                } else {
                     animation.setAnimationListener(animationListener);
                     sound = true;
                     soundBtn.setImageDrawable(getResources().getDrawable(R.drawable.sound));
@@ -249,26 +248,26 @@ public class Tic3Computer extends AppCompatActivity {
 
     }
 
-    boolean proTacticalPlay(){
+    boolean proTacticalPlay() {
         int p = 0;
-        for (int i = 1; i < 10; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", getPackageName()));
+        for (int i = 1; i < 10; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
             if (!button.getText().equals(""))
                 p++;
-            if (i == 9){
+            if (i == 9) {
                 if (p == 0) {
                     btnFive.setText(computerSign);
                     btnFive.startAnimation(animation);
                     playerPlay();
                     return true;
                 }
-                if (p == 1){
+                if (p == 1) {
                     while (true) {
                         Random random = new Random();
                         int rand = random.nextInt(4) + 1;
-                        int q = (rand == 1) ? 1 : (rand == 2) ? 3 : (rand == 3) ? 7 : (rand == 4)? 5 : 9;
+                        int q = (rand == 1) ? 1 : (rand == 2) ? 3 : (rand == 3) ? 7 : (rand == 4) ? 5 : 9;
                         Button buttonPlay = findViewById(getResources().getIdentifier("btn" + q, "id", getPackageName()));
-                        if (buttonPlay.getText().equals("")){
+                        if (buttonPlay.getText().equals("")) {
                             buttonPlay.setText(computerSign);
                             playerPlay();
                             return true;
@@ -280,20 +279,20 @@ public class Tic3Computer extends AppCompatActivity {
         return false;
     }
 
-    boolean tacticalPlay(){
+    boolean tacticalPlay() {
         for (int i = 1; i < 10; i++) {
             int no = 0, yes = 0;
 
-            if (i == 1 || i == 2 || i == 3){
-                for (int j = 0; j < 7; j++){
+            if (i == 1 || i == 2 || i == 3) {
+                for (int j = 0; j < 7; j++) {
                     int k = i + j;
                     Button button = findViewById(getResources().getIdentifier("btn" + k, "id", this.getPackageName()));
                     if (button.getText().equals(computerSign))
                         yes++;
                     if (button.getText().equals(""))
                         no++;
-                    if (no == 2 && yes == 1){
-                        for (int q = 0; q < 3; q++){
+                    if (no == 2 && yes == 1) {
+                        for (int q = 0; q < 3; q++) {
                             int p = i + q;
                             Button buttonPlay = findViewById(getResources().getIdentifier("btn" + p, "id", this.getPackageName()));
                             if (buttonPlay.getText().equals("")) {
@@ -310,16 +309,16 @@ public class Tic3Computer extends AppCompatActivity {
 
             no = yes = 0;
 
-            if (i == 1 || i == 4 || i == 7){
-                for (int j = 0; j < 3; j++){
+            if (i == 1 || i == 4 || i == 7) {
+                for (int j = 0; j < 3; j++) {
                     int k = i + j;
                     Button button = findViewById(getResources().getIdentifier("btn" + k, "id", this.getPackageName()));
                     if (button.getText().equals(computerSign))
                         yes++;
                     if (button.getText().equals(""))
                         no++;
-                    if (yes == 1 && no == 2){
-                        for (int q = 0; q < 3; q++){
+                    if (yes == 1 && no == 2) {
+                        for (int q = 0; q < 3; q++) {
                             int p = i + q;
                             Button buttonPlay = findViewById(getResources().getIdentifier("btn" + p, "id", this.getPackageName()));
                             if (buttonPlay.getText().equals("")) {
@@ -335,12 +334,12 @@ public class Tic3Computer extends AppCompatActivity {
         return false;
     }
 
-    void randomPlay(){
-        while(true) {
+    void randomPlay() {
+        while (true) {
             Random random = new Random();
             int rand = random.nextInt(9) + 1;
             Button button = findViewById(getResources().getIdentifier("btn" + rand, "id", getPackageName()));
-            if (button.getText().equals("")){
+            if (button.getText().equals("")) {
                 button.setText(computerSign);
                 button.startAnimation(animation);
                 break;
@@ -348,16 +347,16 @@ public class Tic3Computer extends AppCompatActivity {
         }
     }
 
-    boolean playToWin(){
-        for (int i = 1; i < 10; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", this.getPackageName()));
-            if (button.getText() == ""){
+    boolean playToWin() {
+        for (int i = 1; i < 10; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", this.getPackageName()));
+            if (button.getText() == "") {
                 button.setText(computerSign);
-                if (checkWin(computerSign)){
+                if (checkWin(computerSign)) {
                     button.startAnimation(animation);
                     setNotify(win, 1);
                     return true;
-                }else {
+                } else {
                     button.setText("");
                 }
             }
@@ -365,16 +364,16 @@ public class Tic3Computer extends AppCompatActivity {
         return false;
     }
 
-    boolean playToBlock(){
-        for (int i = 1; i < 10; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", this.getPackageName()));
-            if (button.getText() == ""){
+    boolean playToBlock() {
+        for (int i = 1; i < 10; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", this.getPackageName()));
+            if (button.getText() == "") {
                 button.setText(playerSign);
-                if (checkWin(playerSign)){
+                if (checkWin(playerSign)) {
                     button.setText(computerSign);
                     button.startAnimation(animation);
                     return true;
-                }else {
+                } else {
                     button.setText("");
                 }
             }
@@ -382,19 +381,14 @@ public class Tic3Computer extends AppCompatActivity {
         return false;
     }
 
-    void removeClickListener(){
-        btnOne.setOnClickListener(null);
-        btnTwo.setOnClickListener(null);
-        btnThree.setOnClickListener(null);
-        btnFour.setOnClickListener(null);
-        btnFive.setOnClickListener(null);
-        btnSix.setOnClickListener(null);
-        btnSeven.setOnClickListener(null);
-        btnEight.setOnClickListener(null);
-        btnNine.setOnClickListener(null);
+    void removeClickListener() {
+        for (int i = 1; i < 10; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
+            button.setOnClickListener(null);
+        }
     }
 
-    void playerPlay(){
+    void playerPlay() {
 
         if (!isPlay)
             return;
@@ -408,7 +402,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnOne.startAnimation(animation);
                     btnOne.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -424,7 +418,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnTwo.startAnimation(animation);
                     btnTwo.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -440,7 +434,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnThree.startAnimation(animation);
                     btnThree.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -456,7 +450,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnFour.startAnimation(animation);
                     btnFour.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -472,7 +466,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnFive.startAnimation(animation);
                     btnFive.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -488,7 +482,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnSix.startAnimation(animation);
                     btnSix.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -504,7 +498,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnSeven.startAnimation(animation);
                     btnSeven.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -520,7 +514,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnEight.startAnimation(animation);
                     btnEight.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -536,7 +530,7 @@ public class Tic3Computer extends AppCompatActivity {
                     btnNine.startAnimation(animation);
                     btnNine.setText(playerSign);
                     removeClickListener();
-                    if (checkWin(playerSign)){
+                    if (checkWin(playerSign)) {
                         setNotify(win, 2);
                         return;
                     }
@@ -546,20 +540,26 @@ public class Tic3Computer extends AppCompatActivity {
         });
     }
 
-    void computerPlay(){
+    void computerPlay() {
 
         if (!isPlay)
             return;
 
-        switch (level){
-            case 1 : computerPlayEasy(); break;
-            case 2 : computerPlayMedim(); break;
-            case 3 : computerPlayHard(); break;
+        switch (level) {
+            case 1:
+                computerPlayEasy();
+                break;
+            case 2:
+                computerPlayMedim();
+                break;
+            case 3:
+                computerPlayHard();
+                break;
         }
 
     }
 
-    void computerPlayHard(){
+    void computerPlayHard() {
 
         status.setText(R.string.computer_turn);
 
@@ -586,7 +586,7 @@ public class Tic3Computer extends AppCompatActivity {
         }).start();
     }
 
-    void computerPlayMedim(){
+    void computerPlayMedim() {
 
         status.setText(R.string.computer_turn);
 
@@ -610,7 +610,7 @@ public class Tic3Computer extends AppCompatActivity {
         }).start();
     }
 
-    void computerPlayEasy(){
+    void computerPlayEasy() {
 
         status.setText(R.string.computer_turn);
 
@@ -637,37 +637,37 @@ public class Tic3Computer extends AppCompatActivity {
             return false;
 
         return
-            areEqual(btnOne.getText().toString(),      btnTwo.getText().toString(),   btnThree.getText().toString(), sign)   ||
-            areEqual(btnFour.getText().toString(),     btnFive.getText().toString(),  btnSix.getText().toString(), sign)     ||
-            areEqual(btnSeven.getText().toString(),    btnEight.getText().toString(), btnNine.getText().toString(), sign)    ||
-            areEqual(btnOne.getText().toString(),      btnFour.getText().toString(),  btnSeven.getText().toString(), sign)   ||
-            areEqual(btnTwo.getText().toString(),      btnFive.getText().toString(),  btnEight.getText().toString(), sign)   ||
-            areEqual(btnThree.getText().toString(),    btnSix.getText().toString(),   btnNine.getText().toString(), sign)    ||
-            areEqual(btnOne.getText().toString(),      btnFive.getText().toString(),  btnNine.getText().toString(), sign)    ||
-            areEqual(btnThree.getText().toString(),    btnFive.getText().toString(),  btnSeven.getText().toString(), sign)   ||
-                    gameOver();
+                areEqual(btnOne.getText().toString(), btnTwo.getText().toString(), btnThree.getText().toString(), sign) ||
+                        areEqual(btnFour.getText().toString(), btnFive.getText().toString(), btnSix.getText().toString(), sign) ||
+                        areEqual(btnSeven.getText().toString(), btnEight.getText().toString(), btnNine.getText().toString(), sign) ||
+                        areEqual(btnOne.getText().toString(), btnFour.getText().toString(), btnSeven.getText().toString(), sign) ||
+                        areEqual(btnTwo.getText().toString(), btnFive.getText().toString(), btnEight.getText().toString(), sign) ||
+                        areEqual(btnThree.getText().toString(), btnSix.getText().toString(), btnNine.getText().toString(), sign) ||
+                        areEqual(btnOne.getText().toString(), btnFive.getText().toString(), btnNine.getText().toString(), sign) ||
+                        areEqual(btnThree.getText().toString(), btnFive.getText().toString(), btnSeven.getText().toString(), sign) ||
+                        gameOver();
     }
 
-    boolean areEqual( String a, String b, String c, String sign ){
-        Boolean check = ( sign.equals(a)  &&  sign.equals(b) &&  sign.equals(c) );
+    boolean areEqual(String a, String b, String c, String sign) {
+        Boolean check = (sign.equals(a) && sign.equals(b) && sign.equals(c));
         if (check && sign.equals(computerSign)) {
-                win = "Computer wins";
+            win = "Computer wins";
         }
         if (check && sign.equals(playerSign)) {
-                win = "Player wins";
+            win = "Player wins";
         }
         return check;
     }
 
-    boolean gameOver(){
+    boolean gameOver() {
 
         int p = 0;
-        for (int i = 1; i < 10; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", getPackageName()));
+        for (int i = 1; i < 10; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
             if (!button.getText().equals(""))
                 p++;
         }
-        if (p == 9){
+        if (p == 9) {
             win = "It's a tie";
             setNotify(win, 0);
             isPlay = false;
@@ -675,34 +675,34 @@ public class Tic3Computer extends AppCompatActivity {
         return false;
     }
 
-    void setNotify(String win, int player){
+    void setNotify(String win, int player) {
         status.setText(win);
         notifyTv.setText(win);
         notify.setVisibility(View.VISIBLE);
         animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
         notify.setAnimation(animation2);
 
-        if (player == 0){
+        if (player == 0) {
             int stat = Integer.parseInt(tieStat.getText().toString()) + 1;
             tieStat.setText(String.valueOf(stat));
             pref.edit().putInt("pTie", stat).apply();
-        }else if (player == 1){
+        } else if (player == 1) {
             int stat = Integer.parseInt(playerOneStat.getText().toString()) + 1;
             playerOneStat.setText(String.valueOf(stat));
             pref.edit().putInt("pOneScore", stat).apply();
-        }else if (player == 2){
+        } else if (player == 2) {
             int stat = Integer.parseInt(playerTwoStat.getText().toString()) + 1;
             playerTwoStat.setText(String.valueOf(stat));
             pref.edit().putInt("pTwoScore", stat).apply();
         }
     }
 
-    void reset(){
+    void reset() {
         isPlay = true;
         notify.setAnimation(null);
         notify.setVisibility(View.GONE);
-        for (int i = 1; i < 10; i++){
-            Button button = findViewById(getResources().getIdentifier("btn"+i, "id", getPackageName()));
+        for (int i = 1; i < 10; i++) {
+            Button button = findViewById(getResources().getIdentifier("btn" + i, "id", getPackageName()));
             button.setText("");
         }
 
@@ -720,11 +720,11 @@ public class Tic3Computer extends AppCompatActivity {
                 break;
         }
 
-        if(!computerTurn){
+        if (!computerTurn) {
             playerSign = "X";
             computerSign = "O";
             playerPlay();
-        }else {
+        } else {
             removeClickListener();
             computerPlay();
         }
