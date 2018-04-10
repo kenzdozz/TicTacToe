@@ -6,7 +6,7 @@ or play with a person.
 There are three difficulty levels a player can choose from while playing with the computer.
 There is a Leaderboard showing the winnings in the game.
 
-Download via this link: http://bit.ly/ALCTicTacToe
+Download via this link: http://bit.ly/TicTacToeALC
 
 This is a Tic Tac Toe Game Developed for the Andela Take a Climb Challenge of the Andela Learning Community 2.0. 
 Thank You Andela for making me do this.
